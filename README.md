@@ -9,7 +9,7 @@
 
 > ### ⚠️ Important Notice & Disclaimer
 > **This repository is published strictly as a showcase, portfolio demonstration, and educational reference.**  
-> The codebase was developed as a preliminary preparatory and conceptual platform for our **SkyMUN** event. Therefore, **we kindly ask you not to copy, re-host, or deploy this project or its identity directly as-is**. You are welcome to inspect, study, and learn from its architectural patterns and design implementation.
+> The codebase was developed as a preliminary preparatory and conceptual platform for our **SkyMUN** event. Therefore, **we kindly ask you not to copy, re-host, or direct deploy this project or its identity directly as-is**. You are welcome to inspect, study, and learn from its architectural patterns and design implementation.
 
 ---
 
@@ -40,8 +40,8 @@ The project is built with a **Zero-Config Database Engine**. On first launch in 
 
 #### 1. Clone the Repository
 ```bash
-git clone https://github.com/USERNAME/REPOSITORY.git
-cd REPOSITORY
+git clone https://github.com/eymencapoglu/skymun.git
+cd skymun
 ```
 
 #### 2. Deploy to Your Local Web Server
@@ -130,8 +130,8 @@ Proje **Zero-Config (Sıfır Yapılandırma)** veritabanı motoruna sahiptir. Ye
 
 #### 1. Depoyu Klonlayın
 ```bash
-git clone https://github.com/KULLANICI_ADI/REPO_ADI.git
-cd REPO_ADI
+git clone https://github.com/eymencapoglu/skymun.git
+cd skymun
 ```
 
 #### 2. Web Sunucunuza Yerleştirin
