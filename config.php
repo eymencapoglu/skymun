@@ -6,6 +6,23 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+if (file_exists(__DIR__ . '/.env')) {
+    $envLines = @file(__DIR__ . '/.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
+    foreach ($envLines as $envLine) {
+        $envLine = trim($envLine);
+        if ($envLine === '' || str_starts_with($envLine, '#')) continue;
+        if (str_contains($envLine, '=')) {
+            [$envKey, $envVal] = explode('=', $envLine, 2);
+            $envKey = trim($envKey);
+            $envVal = trim($envVal, " \t\n\r\0\x0B\"'");
+            if (getenv($envKey) === false) {
+                putenv("{$envKey}={$envVal}");
+                $_ENV[$envKey] = $envVal;
+            }
+        }
+    }
+}
+
 define('SITE_NAME', getenv('SITE_NAME') ?: 'SKYMUN');
 define('SITE_MOTTO', getenv('SITE_MOTTO') ?: 'Diplomacy for Tomorrow');
 define('SITE_URL', getenv('SITE_URL') ?: 'http://localhost');
