@@ -10,10 +10,10 @@ define('SITE_NAME', getenv('SITE_NAME') ?: 'SKYMUN');
 define('SITE_MOTTO', getenv('SITE_MOTTO') ?: 'Diplomacy for Tomorrow');
 define('SITE_URL', getenv('SITE_URL') ?: 'http://localhost');
 define('CONFERENCE_DATE', getenv('CONFERENCE_DATE') ?: '2026-12-20 09:00:00');
-define('CONTACT_EMAIL', getenv('CONTACT_EMAIL') ?: 'info@skymun.org');
+define('CONTACT_EMAIL', getenv('CONTACT_EMAIL') ?: 'info@example.com');
 
-define('ADMIN_USER', getenv('ADMIN_USER') ?: 'admin');
-define('ADMIN_PASS', getenv('ADMIN_PASS') ?: 'admin123');
+define('ADMIN_USER', getenv('ADMIN_USER') ?: '...');
+define('ADMIN_PASS', getenv('ADMIN_PASS') ?: '....');
 
 define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
 define('DB_PORT', getenv('DB_PORT') ?: '3306');
@@ -116,10 +116,10 @@ function init_skymun_tables() {
             $pdo->exec($sqlContactSettings);
 
             $pdo->exec("INSERT INTO `contact_settings` (`channel_key`, `channel_title`, `channel_value`, `status`) VALUES
-                ('instagram', 'Instagram', 'https://instagram.com/skymun', 1),
-                ('mail', 'E-Mail', 'info@skymun.org', 1),
-                ('phone', 'Phone Support', 'Direct Contacts', 1),
-                ('tiktok', 'TikTok', 'https://tiktok.com/@skymun', 1)
+                ('instagram', 'Instagram', '#', 1),
+                ('mail', 'E-Mail', 'info@example.com', 1),
+                ('phone', 'Phone Support', 'Direct Contacts', 0),
+                ('tiktok', 'TikTok', '#', 1)
                 ON DUPLICATE KEY UPDATE `channel_title`=VALUES(`channel_title`);");
 
             $sqlContactPhones = "CREATE TABLE IF NOT EXISTS `contact_phones` (
@@ -147,22 +147,15 @@ function init_skymun_tables() {
             $countExec = $pdo->query("SELECT COUNT(*) FROM `executives`")->fetchColumn();
             if ($countExec == 0) {
                 $stmt = $pdo->prepare("INSERT INTO `executives` (`name`, `title`, `image`, `status`, `sort_order`) VALUES (?, ?, '', 1, ?)");
-                $stmt->execute(['Alexander Wright', 'Secretary-General', 1]);
-                $stmt->execute(['Sarah Jenkins', 'Director-General', 2]);
+                $stmt->execute(['Executive Member', 'Secretary-General', 1]);
+                $stmt->execute(['Executive Member', 'Director-General', 2]);
             }
 
             $countApp = $pdo->query("SELECT COUNT(*) FROM `applications`")->fetchColumn();
             if ($countApp == 0) {
                 $stmt = $pdo->prepare("INSERT INTO `applications` (`title`, `price`, `apply_url`, `description`, `status`, `sort_order`) VALUES (?, ?, ?, ?, 1, ?)");
-                $stmt->execute(['Individual Delegate', '750 ₺', 'https://forms.google.com', 'Standard individual delegate application ticket covering all conference sessions and delegate materials.', 1]);
-                $stmt->execute(['Delegation / Delegation Leader', '700 ₺ / Delegate', 'https://forms.google.com', 'Bulk registration for school and university delegations with faculty advisor privileges.', 2]);
-            }
-
-            $countPhone = $pdo->query("SELECT COUNT(*) FROM `contact_phones`")->fetchColumn();
-            if ($countPhone == 0) {
-                $stmt = $pdo->prepare("INSERT INTO `contact_phones` (`name`, `title`, `phone_number`, `status`, `sort_order`) VALUES (?, ?, ?, 1, ?)");
-                $stmt->execute(['Secretary-General Desk', 'General Coordination', '+90 555 123 45 67', 1]);
-                $stmt->execute(['Director-General Desk', 'Delegate & School Affairs', '+90 555 987 65 43', 2]);
+                $stmt->execute(['Individual Delegate', '750 ₺', '#', 'Standard individual delegate application ticket covering all conference sessions and delegate materials.', 1]);
+                $stmt->execute(['Delegation / Delegation Leader', '700 ₺ / Delegate', '#', 'Bulk registration for school and university delegations with faculty advisor privileges.', 2]);
             }
         } catch (PDOException $e) {
             $last_sql_error = "Tablo oluşturma hatası: " . $e->getMessage();

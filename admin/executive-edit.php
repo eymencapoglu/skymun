@@ -398,7 +398,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_executive'])) {
             <label class="form-label">Adı Soyadı <span style="color:#ef4444;">*</span></label>
             <input type="text" name="name" class="form-control" 
                    value="<?= htmlspecialchars($executive['name'] ?? '') ?>" 
-                   placeholder="Örn: Alexander Wright" required>
+                   placeholder="Örn: Ad Soyad" required>
         </div>
 
         <div class="form-group">

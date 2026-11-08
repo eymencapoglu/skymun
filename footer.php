@@ -153,190 +153,17 @@ $footerPhone = $footerSettings['phone'] ?? null;
     }
 
     .designer-signature-wrap {
-        position: relative;
         display: inline-flex;
         align-items: center;
         justify-content: center;
     }
 
     .designer-signature-text {
+        font-family: var(--font-logo);
         font-size: 0.78rem;
         color: rgba(248, 250, 252, 0.45);
-        letter-spacing: 0.3px;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .designer-trigger {
-        background: transparent;
-        border: none;
-        padding: 0;
-        margin: 0;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: inherit;
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        color: rgba(248, 250, 252, 0.85);
-        transition: color 0.25s ease;
-        text-decoration: none;
-    }
-
-    .designer-name {
-        font-weight: 500;
-        position: relative;
-        transition: color 0.25s ease, text-shadow 0.25s ease;
-    }
-
-    .designer-trigger:hover .designer-name,
-    .designer-trigger.is-active .designer-name {
-        color: #ffffff;
-        text-shadow: 0 0 10px rgba(51, 163, 255, 0.5);
-    }
-
-    .designer-arrow {
-        font-size: 0.82rem;
-        line-height: 1;
-        opacity: 0;
-        transform: translate(-3px, 3px);
-        transition: opacity 0.25s ease, transform 0.25s var(--ease-smooth), color 0.25s ease;
-        color: var(--color-primary);
-        display: inline-block;
-    }
-
-    .designer-trigger:hover .designer-arrow,
-    .designer-trigger.is-active .designer-arrow {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-
-    .designer-card-popover {
-        position: absolute;
-        bottom: calc(100% + 14px);
-        left: 50%;
-        transform: translateX(-50%) translateY(-8px);
-        width: 270px;
-        max-width: calc(100vw - 32px);
-        box-sizing: border-box;
-        background: rgba(4, 9, 38, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(51, 163, 255, 0.28);
-        border-radius: 14px;
-        box-shadow: 0 18px 50px rgba(0, 4, 26, 0.8), 0 0 25px rgba(51, 163, 255, 0.15);
-        padding: 22px 20px 18px;
-        z-index: 1000;
-        text-align: left;
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 0.3s var(--ease-smooth), transform 0.3s var(--ease-smooth), visibility 0.3s var(--ease-smooth);
-    }
-
-    .designer-card-popover.is-open {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-        transform: translateX(-50%) translateY(0);
-    }
-
-    .designer-popover-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 2px;
-    }
-
-    .designer-popover-title {
-        font-family: var(--font-main);
-        font-size: 1.05rem;
-        font-weight: 600;
-        color: #ffffff;
-        letter-spacing: 0.3px;
-        line-height: 1.2;
-    }
-
-    .designer-popover-close {
-        background: transparent;
-        border: none;
-        color: rgba(248, 250, 252, 0.45);
-        font-size: 1.3rem;
-        line-height: 1;
-        cursor: pointer;
-        padding: 0 2px;
-        transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .designer-popover-close:hover {
-        color: #ffffff;
-        transform: scale(1.15);
-    }
-
-    .designer-popover-subtitle {
-        font-family: var(--font-logo);
-        font-size: 0.74rem;
-        color: var(--color-primary);
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
         text-transform: uppercase;
-        margin-top: 3px;
-    }
-
-    .designer-popover-divider {
-        height: 1px;
-        background: rgba(255, 255, 255, 0.08);
-        margin: 14px 0 12px;
-    }
-
-    .designer-popover-links {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-    }
-
-    .designer-popover-link {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 8px 0;
-        color: rgba(248, 250, 252, 0.75);
-        text-decoration: none;
-        font-size: 0.88rem;
-        letter-spacing: 0.3px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        transition: color 0.2s ease, padding-left 0.2s ease;
-    }
-
-    .designer-popover-link:last-child {
-        border-bottom: none;
-    }
-
-    .designer-popover-link span.link-arrow {
-        font-size: 0.92rem;
-        color: rgba(248, 250, 252, 0.4);
-        transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .designer-popover-link:hover {
-        color: #ffffff;
-        padding-left: 3px;
-    }
-
-    .designer-popover-link:hover span.link-arrow {
-        color: var(--color-primary);
-        transform: translate(2px, -2px);
-    }
-
-    .designer-popover-note {
-        margin-top: 14px;
-        padding-top: 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.06);
-        font-size: 0.76rem;
-        color: rgba(248, 250, 252, 0.42);
-        font-style: italic;
-        letter-spacing: 0.4px;
-        text-align: center;
     }
 
     @media (max-width: 900px) {
@@ -391,13 +218,10 @@ $footerPhone = $footerSettings['phone'] ?? null;
                 </div>
                 <div class="footer-social-row">
                     <?php if (!empty($footerIg['status'])): ?>
-                        <a href="<?= htmlspecialchars($footerIg['channel_value']) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="<?= htmlspecialchars($footerIg['channel_value']) ?>" class="footer-icon-btn" aria-label="Instagram" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     <?php endif; ?>
                     <?php if (!empty($footerTiktok['status'])): ?>
-                        <a href="<?= htmlspecialchars($footerTiktok['channel_value']) ?>" target="_blank" rel="noopener noreferrer" class="footer-icon-btn" aria-label="TikTok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-                    <?php endif; ?>
-                    <?php if (!empty($footerPhone['status'])): ?>
-                        <a href="contact.php" class="footer-icon-btn" aria-label="Phone Directory" title="Phone Directory / Support"><i class="fa-solid fa-phone"></i></a>
+                        <a href="<?= htmlspecialchars($footerTiktok['channel_value']) ?>" class="footer-icon-btn" aria-label="TikTok" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
                     <?php endif; ?>
                     <?php if ($footerMailActive): ?>
                         <a href="mailto:<?= htmlspecialchars($footerMail) ?>" class="footer-icon-btn" aria-label="E-Mail" title="E-Mail"><i class="fa-solid fa-envelope"></i></a>
@@ -413,45 +237,8 @@ $footerPhone = $footerSettings['phone'] ?? null;
 
             <div class="designer-signature-wrap">
                 <span class="designer-signature-text">
-                    Site designed and developed by
-                    <button type="button" class="designer-trigger" id="designerCardTrigger" aria-label="Open designer contact card">
-                        <span class="designer-name">Eymen Çapoğlu</span>
-                        <span class="designer-arrow">&#x2197;</span>
-                    </button>
+                    Model United Nations Platform
                 </span>
-
-                <div class="designer-card-popover" id="designerCardPopover" role="dialog" aria-hidden="true">
-                    <div class="designer-popover-header">
-                        <div class="designer-popover-title">Eymen Çapoğlu</div>
-                        <button type="button" class="designer-popover-close" id="designerCardClose" aria-label="Close">&times;</button>
-                    </div>
-                    <div class="designer-popover-subtitle">Design &amp; Development</div>
-                    
-                    <div class="designer-popover-divider"></div>
-
-                    <div class="designer-popover-links">
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="designer-popover-link">
-                            <span>GitHub</span>
-                            <span class="link-arrow">&#x2197;</span>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="designer-popover-link">
-                            <span>LinkedIn</span>
-                            <span class="link-arrow">&#x2197;</span>
-                        </a>
-                        <a href="https://instagram.com/skymun" target="_blank" rel="noopener noreferrer" class="designer-popover-link">
-                            <span>Instagram</span>
-                            <span class="link-arrow">&#x2197;</span>
-                        </a>
-                        <a href="mailto:info@skymun.org" class="designer-popover-link">
-                            <span>Email</span>
-                            <span class="link-arrow">&#x2197;</span>
-                        </a>
-                    </div>
-
-                    <div class="designer-popover-note">
-                        Available for creative work
-                    </div>
-                </div>
             </div>
 
             <div>
@@ -460,56 +247,6 @@ $footerPhone = $footerSettings['phone'] ?? null;
         </div>
     </div>
 </footer>
-
-<script>
-    (function() {
-        const trigger = document.getElementById('designerCardTrigger');
-        const popover = document.getElementById('designerCardPopover');
-        const closeBtn = document.getElementById('designerCardClose');
-
-        if (!trigger || !popover) return;
-
-        function togglePopover(e) {
-            e.stopPropagation();
-            const isOpen = popover.classList.contains('is-open');
-            if (isOpen) {
-                closePopover();
-            } else {
-                openPopover();
-            }
-        }
-
-        function openPopover() {
-            popover.classList.add('is-open');
-            trigger.classList.add('is-active');
-            popover.setAttribute('aria-hidden', 'false');
-        }
-
-        function closePopover() {
-            popover.classList.remove('is-open');
-            trigger.classList.remove('is-active');
-            popover.setAttribute('aria-hidden', 'true');
-        }
-
-        trigger.addEventListener('click', togglePopover);
-        if (closeBtn) closeBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closePopover();
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!popover.contains(e.target) && !trigger.contains(e.target)) {
-                closePopover();
-            }
-        });
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && popover.classList.contains('is-open')) {
-                closePopover();
-            }
-        });
-    })();
-</script>
 
 </body>
 </html>

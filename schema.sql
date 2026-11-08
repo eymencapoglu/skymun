@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `executives` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `executives` (`id`, `name`, `title`, `image`, `status`, `sort_order`) VALUES
-(1, 'Alexander Wright', 'Secretary-General', '', 1, 1),
-(2, 'Sarah Jenkins', 'Director-General', '', 1, 2)
+(1, 'Executive Member', 'Secretary-General', '', 1, 1),
+(2, 'Executive Member', 'Director-General', '', 1, 2)
 ON DUPLICATE KEY UPDATE `id`=`id`;
 
 CREATE TABLE IF NOT EXISTS `applications` (
@@ -79,9 +79,9 @@ CREATE TABLE IF NOT EXISTS `applications` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `applications` (`id`, `title`, `price`, `apply_url`, `description`, `status`, `sort_order`) VALUES
-(1, 'Individual Delegate', '650 ₺', 'https://forms.google.com', 'Participate individually in standard committees representing an assigned member state.', 1, 1),
-(2, 'Delegation Application', '600 ₺ / delegate', 'https://forms.google.com', 'Apply as a school or university delegation led by a faculty advisor or head delegate.', 1, 2),
-(3, 'Executive & Academic Team', 'Free', 'https://forms.google.com', 'Join the academic chair board, crisis team, or logistics organization staff.', 1, 3)
+(1, 'Individual Delegate', '650 ₺', '#', 'Participate individually in standard committees representing an assigned member state.', 1, 1),
+(2, 'Delegation Application', '600 ₺ / delegate', '#', 'Apply as a school or university delegation led by a faculty advisor or head delegate.', 1, 2),
+(3, 'Executive & Academic Team', 'Free', '#', 'Join the academic chair board, crisis team, or logistics organization staff.', 1, 3)
 ON DUPLICATE KEY UPDATE `id`=`id`;
 
 CREATE TABLE IF NOT EXISTS `contact_settings` (
@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS `contact_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `contact_settings` (`channel_key`, `channel_title`, `channel_value`, `status`) VALUES
-('instagram', 'Instagram', 'https://instagram.com/skymun', 1),
-('mail', 'E-Mail', 'info@skymun.org', 1),
-('phone', 'Phone Support', 'Direct Contacts', 1),
-('tiktok', 'TikTok', 'https://tiktok.com/@skymun', 1)
+('instagram', 'Instagram', '#', 1),
+('mail', 'E-Mail', 'info@example.com', 1),
+('phone', 'Phone Support', 'Direct Contacts', 0),
+('tiktok', 'TikTok', '#', 1)
 ON DUPLICATE KEY UPDATE `channel_title`=VALUES(`channel_title`);
 
 CREATE TABLE IF NOT EXISTS `contact_phones` (
@@ -111,11 +111,6 @@ CREATE TABLE IF NOT EXISTS `contact_phones` (
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
-INSERT INTO `contact_phones` (`id`, `name`, `title`, `phone_number`, `status`, `sort_order`) VALUES
-(1, 'Secretary-General Desk', 'General Coordination', '+90 555 123 45 67', 1, 1),
-(2, 'Director-General Desk', 'Delegate & School Affairs', '+90 555 987 65 43', 1, 2)
-ON DUPLICATE KEY UPDATE `id`=`id`;
 
 COMMIT;
 

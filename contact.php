@@ -5,13 +5,13 @@ require_once __DIR__ . '/header.php';
 $contactSettings = get_contact_settings();
 $activePhoneContacts = get_all_contact_phones(true);
 
-$ig = $contactSettings['instagram'] ?? ['channel_value' => 'https://instagram.com/skymun', 'status' => 1];
-$mail = $contactSettings['mail'] ?? ['channel_value' => 'info@skymun.org', 'status' => 1];
-$phone = $contactSettings['phone'] ?? ['channel_value' => 'Direct Contacts', 'status' => 1];
-$tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/@skymun', 'status' => 1];
+$ig = $contactSettings['instagram'] ?? ['channel_value' => '#', 'status' => 1];
+$mail = $contactSettings['mail'] ?? ['channel_value' => 'info@example.com', 'status' => 1];
+$phone = $contactSettings['phone'] ?? ['channel_value' => 'Direct Contacts', 'status' => 0];
+$tiktok = $contactSettings['tiktok'] ?? ['channel_value' => '#', 'status' => 1];
 
 function clean_handle($url, $default) {
-    if (empty($url)) return $default;
+    if (empty($url) || $url === '#') return $default;
     $parsed = parse_url($url, PHP_URL_PATH);
     if ($parsed) {
         $trimmed = trim($parsed, '/');
@@ -22,8 +22,8 @@ function clean_handle($url, $default) {
     return $default;
 }
 
-$igHandle = clean_handle($ig['channel_value'], '@skymun');
-$tiktokHandle = clean_handle($tiktok['channel_value'], '@skymun');
+$igHandle = clean_handle($ig['channel_value'], '@munconference');
+$tiktokHandle = clean_handle($tiktok['channel_value'], '@munconference');
 ?>
 
 <style>
@@ -387,50 +387,33 @@ $tiktokHandle = clean_handle($tiktok['channel_value'], '@skymun');
         <div class="contact-container">
 
             <?php if (!empty($ig['status'])): ?>
-                <a href="<?= htmlspecialchars($ig['channel_value']) ?>" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="contact-functional-card">
+                <div class="contact-functional-card">
                     <div class="contact-card-top">
                         <span class="contact-card-label">Instagram</span>
                         <span class="contact-card-arrow" aria-hidden="true">&#x2197;</span>
                     </div>
                     <div class="contact-card-value"><?= htmlspecialchars($igHandle) ?></div>
-                </a>
+                </div>
             <?php endif; ?>
 
             <?php if (!empty($mail['status'])): ?>
-                <a href="mailto:<?= htmlspecialchars($mail['channel_value']) ?>" 
-                   class="contact-functional-card">
+                <div class="contact-functional-card">
                     <div class="contact-card-top">
                         <span class="contact-card-label">Email</span>
                         <span class="contact-card-arrow" aria-hidden="true">&#x2197;</span>
                     </div>
                     <div class="contact-card-value"><?= htmlspecialchars($mail['channel_value']) ?></div>
-                </a>
-            <?php endif; ?>
-
-            <?php if (!empty($phone['status'])): ?>
-                <div class="contact-functional-card" id="openPhoneModalBtn" role="button" tabindex="0">
-                    <div class="contact-card-top">
-                        <span class="contact-card-label">Contact the team</span>
-                        <span class="contact-card-arrow" aria-hidden="true">&#x2197;</span>
-                    </div>
-                    <div class="contact-card-value">Phone &amp; WhatsApp</div>
                 </div>
             <?php endif; ?>
 
             <?php if (!empty($tiktok['status'])): ?>
-                <a href="<?= htmlspecialchars($tiktok['channel_value']) ?>" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    class="contact-functional-card">
+                <div class="contact-functional-card">
                     <div class="contact-card-top">
                         <span class="contact-card-label">TikTok</span>
                         <span class="contact-card-arrow" aria-hidden="true">&#x2197;</span>
                     </div>
                     <div class="contact-card-value"><?= htmlspecialchars($tiktokHandle) ?></div>
-                </a>
+                </div>
             <?php endif; ?>
 
         </div>

@@ -73,10 +73,10 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete_phone' && isset($_GET[
 $contactSettings = get_contact_settings();
 $phoneContacts = get_all_contact_phones(false);
 
-$ig = $contactSettings['instagram'] ?? ['channel_value' => 'https://instagram.com/skymun', 'status' => 1];
-$mail = $contactSettings['mail'] ?? ['channel_value' => 'info@skymun.org', 'status' => 1];
-$phone = $contactSettings['phone'] ?? ['channel_value' => 'Direct Contacts', 'status' => 1];
-$tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/@skymun', 'status' => 1];
+$ig = $contactSettings['instagram'] ?? ['channel_value' => '#', 'status' => 1];
+$mail = $contactSettings['mail'] ?? ['channel_value' => 'info@example.com', 'status' => 1];
+$phone = $contactSettings['phone'] ?? ['channel_value' => 'Direct Contacts', 'status' => 0];
+$tiktok = $contactSettings['tiktok'] ?? ['channel_value' => '#', 'status' => 1];
 ?>
 <!DOCTYPE html>
 <html lang="tr">
@@ -664,9 +664,9 @@ $tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/
                                 <span>Aktif</span>
                             </label>
                         </div>
-                        <input type="url" name="instagram_val" class="form-control" 
+                        <input type="text" name="instagram_val" class="form-control" 
                                value="<?= htmlspecialchars($ig['channel_value']) ?>" 
-                               placeholder="https://instagram.com/skymun">
+                               placeholder="https://instagram.com/yourhandle">
                     </div>
 
                     <div class="form-group">
@@ -679,7 +679,7 @@ $tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/
                         </div>
                         <input type="email" name="mail_val" class="form-control" 
                                value="<?= htmlspecialchars($mail['channel_value']) ?>" 
-                               placeholder="info@skymun.org">
+                               placeholder="info@example.com">
                     </div>
 
                     <div class="form-group">
@@ -706,9 +706,9 @@ $tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/
                                 <span>Aktif</span>
                             </label>
                         </div>
-                        <input type="url" name="tiktok_val" class="form-control" 
+                        <input type="text" name="tiktok_val" class="form-control" 
                                value="<?= htmlspecialchars($tiktok['channel_value']) ?>" 
-                               placeholder="https://tiktok.com/@skymun">
+                               placeholder="https://tiktok.com/@yourhandle">
                     </div>
 
                     <div style="margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(51, 163, 255, 0.12);">
@@ -736,7 +736,7 @@ $tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/
                         <div class="form-grid-row" style="display:grid; grid-template-columns: 1fr 1fr; gap: 14px;">
                             <div class="form-group">
                                 <label class="form-label">İsim Soyisim *</label>
-                                <input type="text" name="name" class="form-control" placeholder="Örn: Alexander Wright" required>
+                                <input type="text" name="name" class="form-control" placeholder="Örn: Yetkili Adı" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Ünvan / Görev *</label>
@@ -747,7 +747,7 @@ $tiktok = $contactSettings['tiktok'] ?? ['channel_value' => 'https://tiktok.com/
                         <div class="form-grid-row" style="display:grid; grid-template-columns: 1.4fr 0.6fr; gap: 14px;">
                             <div class="form-group">
                                 <label class="form-label">Telefon Numarası *</label>
-                                <input type="text" name="phone_number" class="form-control" placeholder="Örn: +90 555 123 45 67" required>
+                                <input type="text" name="phone_number" class="form-control" placeholder="Örn: +00 000 000 00 00" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Sıra No</label>
