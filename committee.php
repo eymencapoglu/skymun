@@ -10,6 +10,7 @@ if (!$committee) {
     exit;
 }
 
+
 $academicMembers = [];
 for ($i = 1; $i <= 3; $i++) {
     $name = trim($committee["member{$i}_name"] ?? '');

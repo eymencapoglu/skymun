@@ -23,6 +23,7 @@ if (file_exists(__DIR__ . '/.env')) {
     }
 }
 
+
 define('SITE_NAME', getenv('SITE_NAME') ?: 'SKYMUN');
 define('SITE_MOTTO', getenv('SITE_MOTTO') ?: 'Diplomacy for Tomorrow');
 define('SITE_URL', getenv('SITE_URL') ?: 'http://localhost');

@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_action'])) {
     }
 }
 
+
 if (!empty($_SESSION['admin_logged_in'])) {
     header('Location: committees.php');
     exit;

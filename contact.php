@@ -22,6 +22,7 @@ function clean_handle($url, $default) {
     return $default;
 }
 
+
 $igHandle = clean_handle($ig['channel_value'], '@munconference');
 $tiktokHandle = clean_handle($tiktok['channel_value'], '@munconference');
 ?>

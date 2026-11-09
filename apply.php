@@ -5,6 +5,7 @@ require_once __DIR__ . '/header.php';
 $applications = get_all_applications(true);
 ?>
 
+
 <style>
     .applications-hero-section {
         padding: 130px 0 45px;

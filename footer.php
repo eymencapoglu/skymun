@@ -27,6 +27,7 @@ $footerPhone = $footerSettings['phone'] ?? null;
         text-align: left;
     }
 
+    
     .footer-brand-name {
         font-family: var(--font-logo);
         font-size: 1.7rem;

@@ -16,6 +16,7 @@ $isContactActive = ($currentAdminPage === 'contact.php');
         touch-action: manipulation;
     }
 
+    
     .admin-navbar {
         background: rgba(0, 7, 46, 0.92);
         border-bottom: 1px solid rgba(51, 163, 255, 0.18);

@@ -6,6 +6,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+
 $msg = '';
 $msgType = 'success';
 

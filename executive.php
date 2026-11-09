@@ -29,6 +29,7 @@ $executives = get_all_executives(true);
         border-radius: 20px;
     }
 
+    
     .executives-main-title {
         font-family: var(--font-logo);
         font-size: clamp(2.2rem, 4.5vw, 3.2rem);

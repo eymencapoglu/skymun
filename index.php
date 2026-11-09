@@ -21,6 +21,7 @@ require_once __DIR__ . '/header.php';
         z-index: 2;
     }
 
+    
     .hero-subtle-badge {
         display: inline-flex;
         align-items: center;

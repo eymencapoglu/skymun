@@ -27,6 +27,7 @@
         box-shadow: 0 10px 30px rgba(0, 4, 26, 0.6);
     }
 
+    
     .nav-brand {
         display: flex;
         align-items: center;

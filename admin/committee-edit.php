@@ -6,6 +6,7 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $committee = null;
 if ($id > 0) {
